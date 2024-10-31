@@ -19,6 +19,9 @@ public class User {
     @TableField("name")
     private String name;
 
+    @TableField("password")
+    private String password;
+
     @TableField("age")
     private Integer age;
 

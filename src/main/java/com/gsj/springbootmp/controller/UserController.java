@@ -1,13 +1,17 @@
 package com.gsj.springbootmp.controller;
 
+import com.gsj.springbootmp.common.vo.Result;
 import com.gsj.springbootmp.entity.User;
 import com.gsj.springbootmp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("user")
@@ -36,6 +40,7 @@ public class UserController {
         User info=new User();
         info.setName(User.getName());
         info.setAge(User.getAge());
+        info.setPassword(User.getPassword());
         userService.save(info);
     }
 
@@ -50,6 +55,7 @@ public class UserController {
         info.setId(User.getId());
         info.setName(User.getName());
         info.setAge(User.getAge());
+        info.setPassword(User.getPassword());
         userService.updateById(info);
     }
 
@@ -61,4 +67,15 @@ public class UserController {
     public void deleteById(String id){
         userService.removeById(id);
     }
+
+    /**
+     * 根据name、password校验登录
+     * @paramname、password
+     */
+    @PostMapping("/login")
+    public Result<Map<String,Object>> login(User user){
+        Map<String,Object> data = userService.login(user);
+        return Result.success(data);
+    }
+
 }

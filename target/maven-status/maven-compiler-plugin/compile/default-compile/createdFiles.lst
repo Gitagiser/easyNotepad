@@ -1,0 +1,7 @@
+com\gsj\springbootmp\common\vo\Result.class
+com\gsj\springbootmp\service\impl\UserServiceImpl.class
+com\gsj\springbootmp\entity\User.class
+com\gsj\springbootmp\controller\UserController.class
+com\gsj\springbootmp\mapper\UserMapper.class
+com\gsj\springbootmp\SpringBootMpApplication.class
+com\gsj\springbootmp\service\UserService.class
